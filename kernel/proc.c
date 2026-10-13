@@ -124,7 +124,8 @@ allocproc(void)
 found:
   p->pid = allocpid();
   p->state = USED;
-
+  p->mask = 0 ;
+  
   // Allocate a trapframe page.
   if((p->trapframe = (struct trapframe *)kalloc()) == 0){
     freeproc(p);
@@ -295,6 +296,9 @@ fork(void)
     return -1;
   }
   np->sz = p->sz;
+
+  // inheritance mask
+  np->mask = p->mask ;
 
   // copy saved user registers.
   *(np->trapframe) = *(p->trapframe);
