@@ -1,0 +1,6 @@
+usertrap()
+SYS_exec ;that's 7, the system call number, the index of array static uint64 (*syscalls[])(void)
+U, since sstatus.SPP(print /t ($sstatus>>8) & 1) is 0, means user mode.
+lw	a3,0(zero) # 0 <_entry-0x80000000> ; a3
+kernel tries to read virtual address 0x0 and cause page fault. ; No. It's not mapped in the kernel address space. ; Yes, scause=0xd, means page fault.
+initcode 1
