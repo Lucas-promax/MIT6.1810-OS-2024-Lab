@@ -169,6 +169,11 @@ freeproc(struct proc *p)
   p->killed = 0;
   p->xstate = 0;
   p->state = UNUSED;
+  p->handler = 0;
+  p->ticks = 0;
+  p->doneticks = 0;
+  p->during_handler = 0;
+  memset(&p->alarmframe, 0, sizeof(p->alarmframe));
 }
 
 // Create a user page table for a given process, with no user memory,

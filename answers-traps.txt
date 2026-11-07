@@ -1,0 +1,6 @@
+a0,a1,a2...; a2
+26:	45b1                	li	a1,12
+00000000000006bc <printf>
+0x34
+He110 World ; 0x726c6400 ; No
+x=3 y=[undefined] ; $a2's low 4 byte is explained as a signed int
